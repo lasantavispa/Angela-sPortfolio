@@ -151,7 +151,7 @@ html {
   padding: 50px 20px;
   margin: 0 auto;
   max-width: 1000px;
-  color: var(--pink);
+  color: var(--white);
 }
 
 .timeline ol {
@@ -176,7 +176,7 @@ html {
 
 .timeline ol li .time-wrapper {
   position: relative;
-  font-size: 4.5rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 0.9;
 }

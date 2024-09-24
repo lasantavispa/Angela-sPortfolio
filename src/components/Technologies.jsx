@@ -1,13 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Technologies = () => {
+
+const Technologies = ({t}) => {
   return (
     <>
       <div
         id="technologies"
         className="font-font-title text-color-white text-2xl pt-4"
       >
-        technologies
+        {t.technologies}
       </div>
       <div className="flex items-center pt-5 gap-5">
         <svg
@@ -138,5 +140,16 @@ const Technologies = () => {
     </>
   );
 };
+
+Technologies.propTypes = {
+  t: PropTypes.shape({                      // t es un objeto con las traducciones
+    home: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    technologies: PropTypes.string.isRequired,
+    projects: PropTypes.string.isRequired,
+    timeline: PropTypes.string.isRequired,
+    contact: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
+  }).isRequired,};
 
 export default Technologies;

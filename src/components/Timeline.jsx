@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Timeline = () => {
+
+const Timeline = ({t}) => {
     const targets = document.querySelectorAll(".timeline ol li");
 const threshold = 0.5;
 const ANIMATED_CLASS = "in-view";
@@ -24,7 +26,7 @@ for (const target of targets) {
 
   return (
     <>
-     <h3 id="timeline">Timeline</h3>
+     <h3 id="timeline" className="font-font-title text-color-white text-2xl pt-4">{t.timeline}</h3>
 
       <section className="timeline">
         <ol>
@@ -179,5 +181,17 @@ for (const target of targets) {
     </>
   );
 };
+
+Timeline.propTypes = {
+  t: PropTypes.shape({                      // t es un objeto con las traducciones
+    home: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    technologies: PropTypes.string.isRequired,
+    projects: PropTypes.string.isRequired,
+    timeline: PropTypes.string.isRequired,
+    contact: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
+  }).isRequired,
+}
 
 export default Timeline;

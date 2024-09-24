@@ -55,7 +55,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div>
+      {/* <div>
         <p>
           Bienvenido a mi portafolio web. Aquí podrás encontrar mis habilidades
           y proyectos relacionados con la programación web.
@@ -64,7 +64,7 @@ const Hero = () => {
           Para más información, contacta conmigo a través de mi correo
           electrónico o mis redes sociales.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

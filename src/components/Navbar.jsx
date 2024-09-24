@@ -1,41 +1,14 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
-const Navbar = () => {
+const Navbar = ({changeLanguage, t, language}) => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
 
-  const [language, setLanguage] = useState('en');
-
-  const changeLanguage = () => {
-    setLanguage((prevLang) => (prevLang === 'en' ? 'es' : 'en'));
-  };
-
-  const translations = {
-    en: {
-      home: 'Home',
-      about: 'About me',
-      technologies: 'Technologies',
-      projects: 'Projects',
-      timeline: 'Timeline',
-      contact: 'Contact',
-      language: 'Language',
-    },
-    es: {
-      home: 'Inicio',
-      about: 'Sobre mí',
-      technologies: 'Tecnologías',
-      projects: 'Proyectos',
-      timeline: 'Línea de tiempo',
-      contact: 'Contacto',
-      language: 'Lenguaje',
-    },
-  };
-
-  const t = translations[language];
 
   return (
     <div className='h-10'>
@@ -114,6 +87,20 @@ const Navbar = () => {
       </div>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  changeLanguage: PropTypes.func.isRequired,
+  language: PropTypes.string.isRequired, // changeLanguage es una función requerida
+  t: PropTypes.shape({                      // t es un objeto con las traducciones
+    home: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    technologies: PropTypes.string.isRequired,
+    projects: PropTypes.string.isRequired,
+    timeline: PropTypes.string.isRequired,
+    contact: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Navbar;
