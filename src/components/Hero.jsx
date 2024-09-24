@@ -24,7 +24,7 @@ const Hero = () => {
         className="flex flex-col gap-15 md:flex-row justify-center items-center md:gap-24"
       >
         <img
-          src="../public/photoAngela.png"
+          src="/photoAngela.png"
           alt="profile"
           className="p-4 w-72 rounded-full"
         />
