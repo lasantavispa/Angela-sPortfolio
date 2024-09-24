@@ -1,21 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 const Hero = () => {
-  const spans = document.querySelectorAll('.word span');
+  useEffect(() => {
+    // Selecciona todos los spans con la clase 'word'
+    const spans = document.querySelectorAll('.word span');
 
-  spans.forEach((span, idx) => {
-    span.addEventListener('mouseover', (e) => {
-      e.target.classList.add('active');
-    });
-    span.addEventListener('animationend', (e) => {
-      e.target.classList.remove('active');
-    });
+    // Añadir listeners a cada span
+    spans.forEach((span, idx) => {
+      const handleMouseOver = (e) => {
+        e.target.classList.add('active');
+      };
 
-    // Initial animation
-    setTimeout(() => {
-      span.classList.add('active');
-    }, 750 * (idx + 1));
-  });
+      const handleAnimationEnd = (e) => {
+        e.target.classList.remove('active');
+      };
+
+      // Añadir eventos de ratón y animación a cada span
+      span.addEventListener('mouseover', handleMouseOver);
+      span.addEventListener('animationend', handleAnimationEnd);
+
+      // Animación inicial con un pequeño retraso entre letras
+      setTimeout(() => {
+        span.classList.add('active');
+      }, 750 * (idx + 1));
+
+      // Limpieza de event listeners al desmontar el componente
+      return () => {
+        span.removeEventListener('mouseover', handleMouseOver);
+        span.removeEventListener('animationend', handleAnimationEnd);
+      };
+    });
+  }, []);
 
   return (
     <div className='pt-3'>

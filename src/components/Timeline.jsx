@@ -1,27 +1,38 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 const Timeline = ({ t }) => {
-  const targets = document.querySelectorAll('.timeline ol li');
-  const threshold = 0.5;
-  const ANIMATED_CLASS = 'in-view';
+  useEffect(() => {
+    // Selecciona todos los elementos de la timeline
+    const targets = document.querySelectorAll('.timeline ol li');
+    const threshold = 0.5;
+    const ANIMATED_CLASS = 'in-view';
 
-  function callback(entries, observer) {
-    entries.forEach((entry) => {
-      const elem = entry.target;
-      if (entry.intersectionRatio >= threshold) {
-        elem.classList.add(ANIMATED_CLASS);
-        observer.unobserve(elem);
-      } else {
-        elem.classList.remove(ANIMATED_CLASS);
-      }
-    });
-  }
+    // Callback para el IntersectionObserver
+    const callback = (entries, observer) => {
+      entries.forEach((entry) => {
+        const elem = entry.target;
+        if (entry.intersectionRatio >= threshold) {
+          elem.classList.add(ANIMATED_CLASS);
+          observer.unobserve(elem);
+        } else {
+          elem.classList.remove(ANIMATED_CLASS);
+        }
+      });
+    };
 
-  const observer = new IntersectionObserver(callback, { threshold });
-  for (const target of targets) {
-    observer.observe(target);
-  }
+    // Configura el IntersectionObserver
+    const observer = new IntersectionObserver(callback, { threshold });
+
+    // Observa cada elemento objetivo
+    targets.forEach(target => observer.observe(target));
+
+    // Limpia el IntersectionObserver al desmontar el componente
+    return () => {
+      targets.forEach(target => observer.unobserve(target));
+    };
+  }, []); // El array vacío asegura que solo se ejecute una vez cuando el componente se monta
+
 
   return (
     <>

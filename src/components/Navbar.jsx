@@ -62,14 +62,14 @@ const Navbar = ({ changeLanguage, t, language }) => {
         
 
       <div
-        onClick={handleNav}
         className=" md:hidden text-color-white flex justify-between"
       >
          <div className="font-font-title font-bold text-xl">
           Full-Stack Developer
         </div>
    
-        <div className="absolute z-10 right-5">
+        <div className="absolute z-10 right-5 cursor-pointer" onClick={handleNav}
+        >
         {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
           </div>
       </div>
@@ -79,7 +79,7 @@ const Navbar = ({ changeLanguage, t, language }) => {
       <div
         className={`${
           nav ? 'translate-x-0' : 'hidden'
-        } flex-col bg-color-turquoise absolute mt-5 top-10 right-0 w-[40%] md:hidden p-4 rounded-lg shadow-lg z-20 transition-transform duration-300 ease-in-out`}
+        } flex-col bg-color-turquoise absolute mt-7 top-10 right-0 w-[40%] md:hidden p-4 rounded-lg shadow-lg z-20 transition-transform duration-300 ease-in-out`}
       >
         <ul className="flex-col justify-end items-end text-white">
           <li className="p-2" onClick={closeNav}>

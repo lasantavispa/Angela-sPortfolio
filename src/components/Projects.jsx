@@ -30,13 +30,7 @@ const Projects = ({ t }) => {
             </p>
           </div>
         </div>
-        {/* <div className="w-96 md:h-187">
-          <img
-            src="Police360.png"
-            alt="Police360"
-            className="w-full h-full object-cover rounded-md"
-          />
-        </div> */}
+       
         <div className='relative w-96 md:h-187 group'>
           <img
             src="Police360.png"
@@ -49,13 +43,7 @@ const Projects = ({ t }) => {
             </p>
           </div>
         </div>
-        {/* <div className="w-96 md:h-187">
-          <img
-            src="BlogAUJ.png"
-            alt="BlogAUJ"
-            className="w-full h-full object-cover rounded-md"
-          />
-        </div> */}
+    
         <div className='relative w-96 md:h-187 group'>
           <img
             src="BlogAUJ.png"
@@ -68,13 +56,7 @@ const Projects = ({ t }) => {
             </p>
           </div>
         </div>
-        {/* <div className="w-96 md:h-187">
-          <img
-            src="WTHB.png"
-            alt="WTHB"
-            className="w-full h-full object-cover rounded-md"
-          />
-        </div> */}
+      
          <div className='relative w-96 md:h-187 group'>
           <img
             src="WTHB.png"
@@ -94,7 +76,6 @@ const Projects = ({ t }) => {
 
 Projects.propTypes = {
   t: PropTypes.shape({
-    // t es un objeto con las traducciones
     home: PropTypes.string.isRequired,
     about: PropTypes.string.isRequired,
     technologies: PropTypes.string.isRequired,
