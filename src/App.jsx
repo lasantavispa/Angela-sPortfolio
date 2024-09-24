@@ -54,7 +54,7 @@ function App() {
       about: 'Sobre mí',
       technologies: 'Tecnologías',
       projects: 'Proyectos',
-      timeline: 'Línea de tiempo',
+      timeline: 'Línea del tiempo',
       contact: 'Contacto',
       language: 'Lenguaje',
       email: 'Correo electrónico',
