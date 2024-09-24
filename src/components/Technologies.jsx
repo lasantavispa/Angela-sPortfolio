@@ -7,11 +7,11 @@ const Technologies = ({t}) => {
     <>
       <div
         id="technologies"
-        className="font-font-title text-color-white text-2xl pt-4"
+        className="font-font-title font-bold text-color-white text-2xl pt-4 pb-2"
       >
         {t.technologies}
       </div>
-      <div className="flex items-center pt-5 gap-5">
+      <div className="flex flex-wrap justify-center items-center pt-5 gap-5 md:justify-start">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="31"

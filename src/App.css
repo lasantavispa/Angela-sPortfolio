@@ -148,6 +148,7 @@ html {
 
 /* TIMELINE */
 .timeline {
+  font-family: Fahkwang ;
   padding: 50px 20px;
   margin: 0 auto;
   max-width: 1000px;
@@ -171,13 +172,13 @@ html {
 
 .timeline ol li .item-inner {
   padding: 20px 180px;
-  margin-bottom: 8vh;
+  margin-bottom: 4vh;
 }
 
 .timeline ol li .time-wrapper {
   position: relative;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.3rem;
+  /* font-weight: bold; */
   line-height: 0.9;
 }
 
@@ -224,7 +225,7 @@ html {
 }
 
 .timeline ol li .details h3 {
-  font-size: 2rem;
+  font-size: 1rem;
   line-height: 1;
   margin: 15px 0;
 }
@@ -332,7 +333,7 @@ html {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #ccc;
 }
 
 input:checked + .slider:before {

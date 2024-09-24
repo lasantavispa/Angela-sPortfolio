@@ -1,46 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const Timeline = ({ t }) => {
+  const targets = document.querySelectorAll('.timeline ol li');
+  const threshold = 0.5;
+  const ANIMATED_CLASS = 'in-view';
 
-const Timeline = ({t}) => {
-    const targets = document.querySelectorAll(".timeline ol li");
-const threshold = 0.5;
-const ANIMATED_CLASS = "in-view";
+  function callback(entries, observer) {
+    entries.forEach((entry) => {
+      const elem = entry.target;
+      if (entry.intersectionRatio >= threshold) {
+        elem.classList.add(ANIMATED_CLASS);
+        observer.unobserve(elem);
+      } else {
+        elem.classList.remove(ANIMATED_CLASS);
+      }
+    });
+  }
 
-function callback(entries, observer) {
-  entries.forEach((entry) => {
-    const elem = entry.target;
-    if (entry.intersectionRatio >= threshold) {
-      elem.classList.add(ANIMATED_CLASS);
-      observer.unobserve(elem);
-    } else {
-      elem.classList.remove(ANIMATED_CLASS);
-    }
-  });
-}
-
-const observer = new IntersectionObserver(callback, { threshold });
-for (const target of targets) {
-  observer.observe(target);
-}
+  const observer = new IntersectionObserver(callback, { threshold });
+  for (const target of targets) {
+    observer.observe(target);
+  }
 
   return (
     <>
-     <h3 id="timeline" className="font-font-title text-color-white text-2xl pt-4">{t.timeline}</h3>
+      <h3
+        id="timeline"
+        className="font-font-title font-bold text-color-white text-2xl pt-10"
+      >
+        {t.timeline}
+      </h3>
 
       <section className="timeline">
         <ol>
           <li>
             <div className="item-inner">
               <div className="time-wrapper">
-                <time>1934</time>
+                <time>{t.timelineTitle1}</time>
               </div>
               <div className="details">
-                <h3>Heading Here</h3>
+                <h3>{t.timelineSubtitle1}</h3>
+                <p>{t.timelineYear1}</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="item-inner">
+              <div className="time-wrapper">
+                <time>{t.timelineTitle2}</time>
+              </div>
+              <div className="details">
+                <h3>{t.timelineSubtitle2}</h3>
+                <p>{t.timelineYear2}</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="item-inner">
+              <div className="time-wrapper">
+                <time>{t.timelineTitle3}</time>
+              </div>
+              <div className="details">
+                <h3> {t.timelineSubtitle3}</h3>
                 <p>
-                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis praesentium At vero eos et accusamus et iusto odio
-                  dignissimos ducimus qui blanditiis praesentium
+                {t.timelineYear3}
                 </p>
               </div>
             </div>
@@ -48,14 +72,12 @@ for (const target of targets) {
           <li>
             <div className="item-inner">
               <div className="time-wrapper">
-                <time>1937</time>
+                <time>{t.timelineTitle4}</time>
               </div>
               <div className="details">
-                <h3>Heading Here</h3>
+                <h3>{t.timelineSubtitle4}</h3>
                 <p>
-                  Proin quam velit, efficitur vel neque vitae, rhoncus commodo
-                  mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex
-                  augue, varius et pulvinar in, pretium non nisi.
+                {t.timelineYear4}
                 </p>
               </div>
             </div>
@@ -63,14 +85,12 @@ for (const target of targets) {
           <li>
             <div className="item-inner">
               <div className="time-wrapper">
-                <time>1940</time>
+                <time>{t.timelineTitle5}</time>
               </div>
               <div className="details">
-                <h3>Heading Here</h3>
+                <h3>{t.timelineSubtitle5}</h3>
                 <p>
-                  Proin iaculis, nibh eget efficitur varius, libero tellus porta
-                  dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus
-                  arcu, sit amet sollicitudin eros.
+                {t.timelineYear5}
                 </p>
               </div>
             </div>
@@ -78,104 +98,11 @@ for (const target of targets) {
           <li>
             <div className="item-inner">
               <div className="time-wrapper">
-                <time>1943</time>
-              </div>
-              <div className="details">
-                <h3>Heading Here</h3>
-                <p>
-                  In mattis elit vitae odio posuere, nec maximus massa varius.
-                  Suspendisse varius volutpat mattis. Vestibulum id magna est.
-                </p>
+                <time>{t.timelineTitle6}</time>
               </div>
             </div>
-          </li>
-          <li>
-            <div className="item-inner">
-              <div className="time-wrapper">
-                <time>1946</time>
-              </div>
-              <div className="details">
-                <h3>Heading Here</h3>
-                <p>
-                  In mattis elit vitae odio posuere, nec maximus massa varius.
-                  Suspendisse varius volutpat mattis. Vestibulum id magna est.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item-inner">
-              <div className="time-wrapper">
-                <time>1956</time>
-              </div>
-              <div className="details">
-                <h3>Heading Here</h3>
-                <p>
-                  Proin iaculis, nibh eget efficitur varius, libero tellus porta
-                  dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus
-                  arcu, sit amet sollicitudin eros
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item-inner">
-              <div className="time-wrapper">
-                <time>1967</time>
-              </div>
-              <div className="details">
-                <h3>Heading Here</h3>
-                <p>
-                  In mattis elit vitae odio posuere, nec maximus massa varius.
-                  Suspendisse varius volutpat mattis. Vestibulum id magna est.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item-inner">
-              <div className="time-wrapper">
-                <time>1985</time>
-              </div>
-              <div className="details">
-                <h3>Heading Here</h3>
-                <p>
-                  Proin iaculis, nibh eget efficitur varius, libero tellus porta
-                  dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus
-                  arcu, sit amet sollicitudin eros
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item-inner">
-              <div className="time-wrapper">
-                <time>2000</time>
-              </div>
-              <div className="details">
-                <h3>Heading Here</h3>
-                <p>
-                  In mattis elit vitae odio posuere, nec maximus massa varius.
-                  Suspendisse varius volutpat mattis. Vestibulum id magna est.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item-inner">
-              <div className="time-wrapper">
-                <time>2012</time>
-              </div>
-              <div className="details">
-                <h3>Heading Here</h3>
-                <p>
-                  Proin iaculis, nibh eget efficitur varius, libero tellus porta
-                  dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus
-                  arcu, sit amet sollicitudin eros
-                </p>
-              </div>
-            </div>
-          </li>
+          </li>   
+          
         </ol>
       </section>
     </>
@@ -183,7 +110,8 @@ for (const target of targets) {
 };
 
 Timeline.propTypes = {
-  t: PropTypes.shape({                      // t es un objeto con las traducciones
+  t: PropTypes.shape({
+    // t es un objeto con las traducciones
     home: PropTypes.string.isRequired,
     about: PropTypes.string.isRequired,
     technologies: PropTypes.string.isRequired,
@@ -191,7 +119,23 @@ Timeline.propTypes = {
     timeline: PropTypes.string.isRequired,
     contact: PropTypes.string.isRequired,
     language: PropTypes.string.isRequired,
+    timelineTitle1: PropTypes.string.isRequired,
+    timelineTitle2: PropTypes.string.isRequired,
+    timelineTitle3: PropTypes.string.isRequired,
+    timelineTitle4: PropTypes.string.isRequired,
+    timelineTitle5: PropTypes.string.isRequired,
+    timelineTitle6: PropTypes.string.isRequired,
+    timelineYear1: PropTypes.string.isRequired,
+    timelineYear2: PropTypes.string.isRequired,
+    timelineYear3: PropTypes.string.isRequired,
+    timelineYear4: PropTypes.string.isRequired,
+    timelineYear5: PropTypes.string.isRequired,
+    timelineSubtitle1: PropTypes.string.isRequired,
+    timelineSubtitle2: PropTypes.string.isRequired,
+    timelineSubtitle3: PropTypes.string.isRequired,
+    timelineSubtitle4: PropTypes.string.isRequired,
+    timelineSubtitle5: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 export default Timeline;
