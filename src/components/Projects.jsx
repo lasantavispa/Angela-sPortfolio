@@ -77,7 +77,7 @@ const Projects = ({ t }) => {
           </div>
         </a>
 
-        <a href='https://lasantavispa.github.io/snake-game/' className='relative w-96 md:h-187 group cursor-pointer' target="_blank"  >
+        <a href='https://snake-game-xi-eight.vercel.app/' className='relative w-96 md:h-187 group cursor-pointer' target="_blank"  >
           <img
             src="snake-screenshot.png"
             alt="harry"
