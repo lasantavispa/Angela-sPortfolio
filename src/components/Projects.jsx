@@ -77,6 +77,34 @@ const Projects = ({ t }) => {
           </div>
         </a>
 
+        <a href='https://lasantavispa.github.io/snake-game/' className='relative w-96 md:h-187 group cursor-pointer' target="_blank"  >
+          <img
+            src="snake-screenshot.png"
+            alt="harry"
+            className="w-full h-full object-cover rounded-md transition-opacity duration-300 group-hover:opacity-0"
+          />
+          <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md">
+            <p className="text-center p-4">
+              {t.projectDescription6}
+            </p>
+          </div>
+        </a>
+
+        <a href='https://flixbuzz.vercel.app/' className='relative w-96 md:h-187 group cursor-pointer' target="_blank"  >
+          <img
+            src="flixbuzz.png"
+            alt="harry"
+            className="w-full h-full object-cover rounded-md transition-opacity duration-300 group-hover:opacity-0"
+          />
+          <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-70 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md">
+            <p className="text-center p-4">
+              {t.projectDescription7}
+            </p>
+          </div>
+        </a>
+
+        
+
       </div>
     </>
   );
